@@ -10,7 +10,7 @@
 
 {% if not items %}
   Your Shopping List is Empty
-{% endif %}
+{% else %}
 <ul>
   {% for item in items %}
     <li>{{item.name}} found in <strong>{{item.aisle}}</strong> aisle
@@ -18,5 +18,5 @@
     </li>
   {% endfor %}
 </ul>  
-
+{% endif %}
 {% endblock %}
