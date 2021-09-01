@@ -129,6 +129,15 @@ def get_recipe(request,id):
     parameters
   ).json()
   
+  recipe_ingredients = recipe["extendedIngredients"]
+  
+  for ingredient in recipe_ingredients:
+    Item.objects.get_or_create(
+      name=ingredient["originalName"],
+      aisle=ingredient["aisle"],
+      recipe_id=recipe["id"]
+    )
+  
   review_form = ReviewForm()
   
   reviews = Review.objects.filter(recipe_id=id)
@@ -144,46 +153,7 @@ def get_recipe(request,id):
   return render(request,'recipe_detail.html', context)
 
 def add_to_shopping_list(request,recipe_id):
-  # ingredients = request.POST.dict()
-  # del ingredients["csrfmiddlewaretoken"]
-  # items = []
-  # count = 0
-  # item = {}
-  # for ingredient in ingredients.keys():
-  #   if count%2:
-  #     item = {}
-  #     item["name"] = ingredient
-  #     item["recipe_id"] = recipe_id
-  #   else:
-  #     item["aisle"] = ingredient
-  #   items.append(item)
-  #   count+=1
-  # items_db = []
-  # for item in items:
-  #   item_db = Item.objects.create(name=item["name"],aisle=item["aisle"],recipe_id=item["recipe_id"])
-  #   items_db.append(item_db)
-  # print(items_db)
-  # new_shopping_list = ShoppingList.objects.create(user=request.user)
-  # for item in items_db:
-  #   new_shopping_list.items.add(item.id)
-  parameters = {
-    'apiKey': API_KEY,
-  }
-  
-  recipe_ingredients = requests.get(
-    f'https://api.spoonacular.com/recipes/{recipe_id}/information',
-    parameters
-  ).json()["extendedIngredients"]
-  
-  items = []
-  for ingredient in recipe_ingredients:
-    item, _ = Item.objects.get_or_create(
-      name=ingredient["originalName"],
-      aisle=ingredient["aisle"],
-      recipe_id=recipe_id
-    )
-    items.append(item)
-  print(items)
+  items = Item.objects.filter(recipe_id=recipe_id)
   new_shopping_list, _ = ShoppingList.objects.get_or_create(user=request.user)
   for item in items:
     new_shopping_list.items.add(item.id)

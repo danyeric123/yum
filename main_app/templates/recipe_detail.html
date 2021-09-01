@@ -10,7 +10,9 @@
 
 <h1>{{ recipe.title }}</h1>
 <h2>Takes {{recipe.readyInMinutes}} mins</h2>
-<img src="{{recipe.image}}" alt="{{recipe.title}}">
+{% if recipe.image %}
+  <img src="{{recipe.image}}" alt="{{recipe.title}}">
+{% endif %}
 <section>
 
   <h2>Summary:</h2>
@@ -30,10 +32,9 @@
     {% endfor %} {% endcomment %}
     <button class="btn submit">Add To Shopping List</button>
   </form>
-
   <form action="{% url 'add_recipe' %}" method="post">
     {% csrf_token %}
-    <input type="text" name="name" value={{recipe.title}} hidden >
+    <input type="text" name="name" value="{{recipe.title}}" hidden>
     <input type="number" name="api" value={{recipe.id}} hidden >
     <button class="btn submit">Add To Recipe Box</button>
   </form>
