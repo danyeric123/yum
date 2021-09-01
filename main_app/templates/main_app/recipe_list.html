@@ -8,7 +8,7 @@
 <h1>Recipe Box</h1>
 {% if not recipe_list %}
   <p>No recipes yet</p>
-{% endif %}
+{% else %}
 <ul>
   {% for recipe in recipe_list %}
     <li>
@@ -19,5 +19,6 @@
     </li>
   {% endfor %}
 </ul>  
+{% endif %}
 
 {% endblock %}

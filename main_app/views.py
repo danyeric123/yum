@@ -55,6 +55,7 @@ class RecipeList(LoginRequiredMixin,ListView):
 
 class RecipeDelete(LoginRequiredMixin,DeleteView):
   model = Recipe
+  success_url="/recipes/"
 
 class ShoppingListDetail(LoginRequiredMixin,DetailView):
   model = ShoppingList
