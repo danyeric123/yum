@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="page-header">
+  <h1>Delete Shopping List?</h1>
+</div>
+<h2>Are you sure you want to delete {{ object.name }}?</h2>
+
+<form action="" method="POST" class="form">
+  {% csrf_token %}
+  <a 
+    href="{% url 'shopping_list_detail' shoppinglist.id %}" 
+    class="cancel-btn"
+  >
+    Cancel
+  </a>
+  <button type="submit" class="delete">Yes - Delete!</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+  <title>Yum</title>
+  {% block head %}
+  {% endblock %}
+</head>
+<body>
+  <header>
+        <a href="/">
+          <img 
+            src="https://st2.depositphotos.com/6456088/42163/v/1600/depositphotos_421638118-stock-illustration-yum-icon-smile-tongue-saliva.jpg" 
+            alt="yum logo"
+            style="border-radius:50%"
+            width="80px"
+          >
+        </a>
+      <p
+        class="pl-12 text-4xl"
+      >
+        Hello {{user.username}}
+      </p>
+    </div>
+    <nav>
+      <ul>
+        {% if user.is_authenticated %}
+          
+          <li ><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'shopping_list' %}">Shopping List</a></li>
+          <li><a href="{% url 'recipe_list' %}">Recipe Box</a></li>
+          <li><a href="{% url 'logout' %}">Log out</a></li>
+        {% else %}
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'home' %}">Login</a></li>
+          <li><a href="{% url 'signup' %}">Sign Up</a></li>
+        {% endif %}
+        <li class="search-box">
+          <form action="{% url 'search' %}" method='get'>
+          {% csrf_token %}
+          <input type="text" name="query" placeholder="Search for recipe">
+          <button type="submit"> Search </button>
+        </form>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>

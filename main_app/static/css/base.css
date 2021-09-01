@@ -1,0 +1,157 @@
+main{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+header{
+  background-color:#F4EBE8;
+  border-end-start-radius: 10%;
+  border-end-end-radius: 10%;
+  box-shadow: rgb(167, 144, 114) 10px 5px 5px;
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  padding: 2rem;
+  margin-bottom: 5rem;
+}
+
+h1{
+  font-size:x-large;
+  font-weight: 500;
+  padding: 1rem;
+  border-radius: 30%;
+  margin-bottom: 1rem;
+  background-color: blanchedalmond;
+  border: solid black 3px;
+  box-shadow: rgb(167, 144, 114) 10px 5px 5px;
+}
+
+nav>ul{
+  display: flex;
+  flex-direction: row;
+}
+
+main > ul{
+  border: solid black 3px;
+  border-radius: 20%;
+  padding: 2.5rem;
+  box-shadow: rgb(167, 144, 114) 10px 5px 5px;
+}
+
+nav > ul > li{
+  font-weight: 500;
+  margin: 10px;
+  padding: 0.5rem;
+  border-radius: 30%;
+  box-shadow: rgb(112, 105, 105) 5px 3px 3px;
+}
+
+.search-box{
+  box-shadow: none;
+}
+
+.search-box:hover{
+  box-shadow: none;
+}
+
+section{
+  border: black solid 1px;
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+  padding: 2rem;
+  border-radius: 10%;
+  margin: 2rem;
+}
+
+section > a {
+  color: blue;
+}
+
+.review {
+  box-shadow: rgb(47, 47, 51) 5px 3px 3px;
+  border: black solid 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 30%;
+}
+
+.review > h3 {
+  font-size:xx-large;
+}
+
+input, textarea{
+  border: solid black 1px;
+  padding: 0.5rem;
+}
+
+small{
+  color: gray;
+}
+
+.form{
+  margin: 2rem;
+}
+
+h2{
+  font-weight: 700;
+  font-size: xx-large;
+}
+
+.cancel-btn{
+  background-color: gray;
+  color: whitesmoke;
+  padding: 1rem;
+  border-radius: 40%;
+  margin: 1rem;
+  box-shadow: rgb(53, 52, 52) 5px 1px 1px;
+}
+
+.cancel-btn:hover{
+  box-shadow: rgb(17, 17, 17) 10px 2px 2px;
+}
+
+hr{
+  width: 5px;
+}
+
+form > button{
+  background-color: rgba(0, 0, 255, 0.85);
+  color: whitesmoke;
+  padding: 0.5rem;
+  border-radius: 30%;
+  box-shadow: rgb(1, 1, 126) 5px 3px 3px;
+}
+form > button:hover{
+  box-shadow: rgb(0, 0, 71) 10px 6px 6px;
+}
+
+nav > ul > li:hover{
+  box-shadow: rgb(27, 26, 26) 5px 3px 3px;
+}
+
+main > ul> li{
+  margin: 2rem;
+}
+
+main > a{
+  text-decoration: underline;
+  color: blue;
+}
+
+.delete{
+  background-color: crimson;
+  color: whitesmoke;
+  border-radius: 30%;
+  padding: 0.5rem;
+  box-shadow: rgb(156, 156, 156) 5px 1px 1px;
+}
+
+.delete:hover{
+  box-shadow: rgb(78, 78, 78) 10px 2px 2px;
+}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/pup-index.css' %}"/> {% endcomment %}
+{% endblock %}
+
+{% block content %}
+<section>
+  <h1>Shopping Lists</h1>
+  <ul>
+    {% for list in shopping_lists %}
+      <li><a href="{% url 'shopping_list_detail' list.id %}">
+        Shopping List {{list.id}}
+      </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

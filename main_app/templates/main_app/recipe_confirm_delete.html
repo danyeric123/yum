@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<h2>Are you sure you want to remove {{ object.name }} from your recipes?</h2>
+
+<form action="" method="POST" class="form">
+  {% csrf_token %}
+  <a 
+    href="{% url 'recipe_list' %}" 
+    class="cancel-btn"
+  >
+    Cancel
+  </a>
+  <button type="submit" class="delete">Yes - Remove!</button>
+</form>
+
+{% endblock %}

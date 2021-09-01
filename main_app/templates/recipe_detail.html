@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load tz %}
+{% load static %}
+
+{% block head %}
+<script defer src="{% static 'js/photo_add.js' %}"></script>
+{% endblock head %}
+
+{% block content %}
+
+<h1>{{ recipe.title }}</h1>
+<h2>Takes {{recipe.readyInMinutes}} mins</h2>
+<img src="{{recipe.image}}" alt="{{recipe.title}}">
+<section>
+
+  <h2>Summary:</h2>
+  {{recipe.summary | safe}}
+  <h2>Instructions</h2>
+  {{recipe.instructions | safe}}
+
+  <form class="my-4" action="{% url 'add_to_shopping_list' recipe.id %}" method="post">
+  {% csrf_token %}
+    {% comment %} {% for ingredient in recipe.extendedIngredients %}
+      <input 
+        name="{{ingredient.originalName}}" 
+        type="text" 
+        value="{{ingredient.originalName}}"
+      >
+      <input name="{{ingredient.aisle}}" type="text" value="{{ingredient.aisle}}">
+    {% endfor %} {% endcomment %}
+    <button class="btn submit">Add To Shopping List</button>
+  </form>
+
+  <form action="{% url 'add_recipe' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="name" value={{recipe.title}} hidden >
+    <input type="number" name="api" value={{recipe.id}} hidden >
+    <button class="btn submit">Add To Recipe Box</button>
+  </form>
+</section>
+
+<section>
+  <h3>Add Photo</h3>
+    <p id="file-name"></p>
+    <form 
+      action="{% url 'add_photo' recipe.id %}"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      {% csrf_token %}
+      <label class="btn secondary">
+        Choose photo
+        <input type="file" name="photo-file" id="file-input">
+      </label>
+      <button type="submit" class="btn submit">Upload Photo</button>
+    </form>
+  <h3>Photos By Other Users</h3>
+  {% if not photos %}
+    <p>No Photos Yet</p>
+  {% endif %}
+  {% for photo in photos %}
+
+    <img src="{{photo.url}}" alt="{{photo.url}}">
+    <small>{{photo.user}}</small>
+  {% endfor %}
+</section>
+
+<section>
+<form action="{% url 'add_review' recipe.id %}" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn submit">Add Review</button>
+</form>
+</section>
+<hr>
+<h1>Reviews</h1>
+
+{% for review in reviews %}
+  <div class="review">
+    <h3>{{review.author}}</h3>
+    <p>{{review.content}}</p>
+    <p>Rating: {{review.rating}}</p>
+    <small>{{review.created_at | timezone:"America/New_York" }}</small>
+  </div>
+{% endfor %}
+
+
+
+{% endblock content %}

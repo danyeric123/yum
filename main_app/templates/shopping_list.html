@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+
+<h1>Your Shopping List</h1>
+
+{% if not items %}
+  Your Shopping List is Empty
+{% endif %}
+<ul>
+  {% for item in items %}
+    <li>{{item.name}} found in <strong>{{item.aisle}}</strong> aisle
+    <a href="{% url 'item_delete' item.id %}" class="delete">Delete</a>
+    </li>
+  {% endfor %}
+</ul>  
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for recipe in recipes %}
+  <section>
+    <a href="{% url 'recipe_detail' recipe.id %}">
+      <img src="{{recipe.image}}" alt="{{recipe.title}}">
+      <h1>{{ recipe.title }}</h1>
+    </a>
+    <h2> <strong>Ready In:</strong> {{recipe.readyInMinutes}}</h2>
+  </section>
+{% endfor %}
+
+{% endblock content %}

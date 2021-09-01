@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block head %}
+{% endblock %}
+
+{% block content %}
+<h1>Recipe Box</h1>
+{% if not recipe_list %}
+  <p>No recipes yet</p>
+{% endif %}
+<ul>
+  {% for recipe in recipe_list %}
+    <li>
+    <a href="{% url 'recipe_detail' recipe.api %}">
+      {{recipe.name}}
+    </a>
+    <a href="{% url 'recipe_delete' recipe.id %}" class="delete">Delete</a>
+    </li>
+  {% endfor %}
+</ul>  
+
+{% endblock %}
