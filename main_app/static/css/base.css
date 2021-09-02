@@ -1,5 +1,5 @@
 body{
-  background-color: #f0ffff;
+  background-image: url('../images/purty_wood_@2X.png');
 }
 main{
   display: flex;
@@ -11,7 +11,8 @@ main{
 }
 
 header{
-  background-color:#F4EBE8;
+  /* background-color:#F4EBE8; */
+  background-image: url("https://media.istockphoto.com/photos/red-white-dishtowel-textile-texture-picture-id184398857?k=20&m=184398857&s=612x612&w=0&h=IcqInZjGN69_-hnYs0NZgINJc2DtapSzEfewsckbVHA=");
   border-end-start-radius: 10%;
   border-end-end-radius: 10%;
   box-shadow: rgb(167, 144, 114) 10px 5px 5px;
@@ -21,6 +22,10 @@ header{
   margin-bottom: 5rem;
 }
 
+header:hover{
+  padding-bottom: 4rem;
+}
+
 
 h1{
   font-size:x-large;
@@ -28,7 +33,9 @@ h1{
   padding: 1rem;
   border-radius: 30%;
   margin-bottom: 1rem;
-  background-color: #fdf5e6;
+  color: rgb(48, 47, 47);
+  /* background-color: #fdf5e6; */
+  background-image: url("https://media.istockphoto.com/photos/red-white-dishtowel-textile-texture-picture-id184398857?k=20&m=184398857&s=612x612&w=0&h=IcqInZjGN69_-hnYs0NZgINJc2DtapSzEfewsckbVHA=");
   box-shadow: rgb(167, 144, 114) 10px 5px 5px;
 }
 
@@ -55,15 +62,14 @@ nav>ul{
 }
 
 main > ul{
-  background-color: #fff0f5;
-  border-radius: 10%;
+  background-image: url('https://images.unsplash.com/photo-1586076100131-32505c71d0d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80');
+  border-radius: 5%;
   padding: 1.5rem;
   box-shadow: rgb(167, 144, 114) 10px 5px 5px;
 }
 
 main > ul > li{
   box-shadow: rgb(167, 144, 114) 5px 3px 3px;
-  background-color: #faf0e6;
   border-radius: 20%;
   padding: 1rem;
 }
@@ -76,6 +82,7 @@ nav > ul > li{
   font-weight: 500;
   margin: 10px;
   padding: 0.5rem;
+  background-color:#F4EBE8;
   border-radius: 30%;
   box-shadow: rgb(112, 105, 105) 5px 3px 3px;
 }
@@ -89,7 +96,7 @@ nav > ul > li{
 }
 
 section{
-  /* border: black solid 1px; */
+  background-color: #f8f4ff;
   box-shadow: rgb(112, 105, 105) 5px 3px 3px;
   margin-left: 2.5rem;
   margin-right: 2.5rem;
@@ -104,9 +111,9 @@ section > a {
 
 .review {
   box-shadow: rgb(47, 47, 51) 5px 3px 3px;
-  border: black solid 1px;
   display: flex;
   flex-direction: column;
+  background-color: #FED998;
   align-items: center;
   padding: 1.5rem;
   border-radius: 30%;
