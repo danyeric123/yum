@@ -1,3 +1,6 @@
+body{
+  background-color: #f0ffff;
+}
 main{
   display: flex;
   flex-direction: column;
@@ -13,9 +16,8 @@ header{
   border-end-end-radius: 10%;
   box-shadow: rgb(167, 144, 114) 10px 5px 5px;
   display: flex;
-  flex-direction: row; 
-  justify-content: center;
-  padding: 2rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
   margin-bottom: 5rem;
 }
 
@@ -26,21 +28,48 @@ h1{
   padding: 1rem;
   border-radius: 30%;
   margin-bottom: 1rem;
-  background-color: blanchedalmond;
-  border: solid black 3px;
+  background-color: #fdf5e6;
   box-shadow: rgb(167, 144, 114) 10px 5px 5px;
+}
+
+.logo{
+  font-size: xx-large;
+  padding-left: 2rem;
 }
 
 nav>ul{
   display: flex;
-  flex-direction: row;
+}
+
+@media screen and (max-width:849px) {
+  nav>ul{
+    flex-direction: column;
+  }
+}
+
+@media screen and (min-width:850px) {
+  nav>ul{
+    position:absolute;
+    right: 0;
+  }
 }
 
 main > ul{
-  border: solid black 3px;
-  border-radius: 20%;
-  padding: 2.5rem;
+  background-color: #fff0f5;
+  border-radius: 10%;
+  padding: 1.5rem;
   box-shadow: rgb(167, 144, 114) 10px 5px 5px;
+}
+
+main > ul > li{
+  box-shadow: rgb(167, 144, 114) 5px 3px 3px;
+  background-color: #faf0e6;
+  border-radius: 20%;
+  padding: 1rem;
+}
+
+main > ul > li:hover{
+  box-shadow: rgb(167, 144, 114) 10px 6px 6px;
 }
 
 nav > ul > li{
@@ -60,7 +89,8 @@ nav > ul > li{
 }
 
 section{
-  border: black solid 1px;
+  /* border: black solid 1px; */
+  box-shadow: rgb(112, 105, 105) 5px 3px 3px;
   margin-left: 2.5rem;
   margin-right: 2.5rem;
   padding: 2rem;
@@ -105,16 +135,25 @@ h2{
 }
 
 .cancel-btn{
-  background-color: gray;
-  color: whitesmoke;
-  padding: 1rem;
-  border-radius: 40%;
-  margin: 1rem;
-  box-shadow: rgb(53, 52, 52) 5px 1px 1px;
+  box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	background-color:#768d87;
+	border-radius:5px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:0.5rem;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
 }
 
 .cancel-btn:hover{
-  box-shadow: rgb(17, 17, 17) 10px 2px 2px;
+  background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	background-color:#6c7c7c;
 }
 
 hr{
@@ -122,14 +161,23 @@ hr{
 }
 
 form > button{
-  background-color: rgba(0, 0, 255, 0.85);
-  color: whitesmoke;
-  padding: 0.5rem;
-  border-radius: 30%;
-  box-shadow: rgb(1, 1, 126) 5px 3px 3px;
+  box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+	background-color:#7892c2;
+	border-radius:10px;
+	border:1px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:19px;
+	padding:0.5rem;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #283966;
 }
 form > button:hover{
-  box-shadow: rgb(0, 0, 71) 10px 6px 6px;
+  background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	background-color:#476e9e;
 }
 
 nav > ul > li:hover{
@@ -146,13 +194,23 @@ main > a{
 }
 
 .delete{
-  background-color: crimson;
-  color: whitesmoke;
-  border-radius: 30%;
-  padding: 0.5rem;
-  box-shadow: rgb(156, 156, 156) 5px 1px 1px;
+  box-shadow:inset 0px 1px 0px 0px #f5978e;
+	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+	background-color:#f24537;
+	border-radius:6px;
+	border:1px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #810e05;
 }
 
 .delete:hover{
-  box-shadow: rgb(78, 78, 78) 10px 2px 2px;
+  background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+	background-color:#c62d1f;
 }
