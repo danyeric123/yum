@@ -64,12 +64,12 @@ class ShoppingListDetail(LoginRequiredMixin,DetailView):
       context = super().get_context_data(**kwargs)
       context["items"] = self.object.items.all()
       return context
-
+@login_required
 def shopping_list(request):
   shopping_list,_ = ShoppingList.objects.get_or_create(user=request.user)
   items = shopping_list.items.all()
   return render(request,'shopping_list.html',{"items":items})
-  
+ 
 class ItemDelete(LoginRequiredMixin,DeleteView):
   model=Item
   success_url = '/shopping_list/'
@@ -85,16 +85,7 @@ def add_recipe(request):
 def about(request):
   return render(request, 'about.html')
 
-# class ReviewCreate(LoginRequiredMixin,CreateView):
-#   model = Review
-#   fields = ['content','rating']
-  
-#   def form_valid(self, form):
-#     # Assign the logged in user (self.request.user)
-#     form.instance.user = self.request.user  # form.instance is the cat
-#     # Let the CreateView do its job as usual
-#     return super().form_valid(form)
-
+@login_required
 def add_review(request,recipe_id):
   form = ReviewForm(request.POST)
   
@@ -105,6 +96,7 @@ def add_review(request,recipe_id):
     new_review.save()
   return redirect('recipe_detail',id=recipe_id)
 
+@login_required
 def search_recipe(request):
   parameters = {
     'apiKey': API_KEY,
@@ -119,6 +111,7 @@ def search_recipe(request):
   
   return render(request,'search.html',{"recipes":recipes})
 
+@login_required
 def get_recipe(request,id):
   parameters = {
     'apiKey': API_KEY,
@@ -152,6 +145,7 @@ def get_recipe(request,id):
   
   return render(request,'recipe_detail.html', context)
 
+@login_required
 def add_to_shopping_list(request,recipe_id):
   items = Item.objects.filter(recipe_id=recipe_id)
   new_shopping_list, _ = ShoppingList.objects.get_or_create(user=request.user)
@@ -184,8 +178,4 @@ def add_photo(request, recipe_id):
     except Exception as err:
       print('An error occurred uploading file to S3: %s' % err)
   return redirect('recipe_detail', id=recipe_id)
-
-def convert(obj):
-  text = json.dumps(obj, sort_keys=True, indent=2)
-  print(text)
   
