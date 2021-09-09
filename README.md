@@ -45,7 +45,7 @@ Click the link [here](https://yumm-yum.herokuapp.com/) and sign up for an accoun
 ![wireframe](./main_app/static/images/Screen%20Shot%202021-09-02%20at%209.07.21%20AM.png)
 
 ## Screenshots
-
+![Screenshot](https://i.imgur.com/h2EbPXV.png)
 
 ## Credits
 - Button styles taken from [here](https://www.bestcssbuttongenerator.com/)
