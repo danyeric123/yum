@@ -1,10 +1,9 @@
 from django.forms import ModelForm
 from .models import Review
 
+
 class ReviewForm(ModelForm):
-  class Meta:
-    model = Review
-    fields = ['content','rating']
-    labels = {
-      'rating': "Rating (Out of 5)" 
-    }
+    class Meta:
+        model = Review
+        fields = ["content", "rating"]
+        labels = {"rating": "Rating (Out of 5)"}

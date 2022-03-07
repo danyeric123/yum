@@ -6,19 +6,19 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_app', '0001_initial'),
+        ("main_app", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='item',
-            name='aisle',
-            field=models.CharField(default='nope', max_length=250),
+            model_name="item",
+            name="aisle",
+            field=models.CharField(default="nope", max_length=250),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='shoppinglist',
-            name='items',
-            field=models.ManyToManyField(blank=True, to='main_app.Item'),
+            model_name="shoppinglist",
+            name="items",
+            field=models.ManyToManyField(blank=True, to="main_app.Item"),
         ),
     ]
