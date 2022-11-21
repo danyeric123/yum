@@ -1,6 +1,6 @@
 asgiref==3.5.2
 boto3==1.24.88
-botocore==1.21.32
+botocore==1.29.13
 certifi==2022.9.24
 charset-normalizer==2.0.4
 dj-database-url==1.0.0
